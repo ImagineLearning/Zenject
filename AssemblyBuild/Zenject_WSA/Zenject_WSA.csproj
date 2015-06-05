@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B8BF83B-5A6F-4F6C-9314-4784B7205023}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zenject_WSA</RootNamespace>
+    <AssemblyName>Zenject_WSA</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Assert.cs">
+      <Link>..\..\Internal\Assert.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\LinqExtensions.cs">
+      <Link>..\..\Internal\LinqExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Log.cs">
+      <Link>..\..\Internal\Log.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\MiscExtensions.cs">
+      <Link>..\..\Internal\MiscExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\ProfileBlock.cs">
+      <Link>..\..\Internal\ProfileBlock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\ReflectionUtil.cs">
+      <Link>..\..\Internal\ReflectionUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Tuple.cs">
+      <Link>..\..\Internal\Tuple.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\TypeExtensions.cs">
+      <Link>..\..\Internal\TypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Func.cs">
+      <Link>..\..\Internal\Func.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Assert.cs">
+      <Link>..\..\Internal\Assert.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\LinqExtensions.cs">
+      <Link>..\..\Internal\LinqExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Log.cs">
+      <Link>..\..\Internal\Log.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\MiscExtensions.cs">
+      <Link>..\..\Internal\MiscExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\ProfileBlock.cs">
+      <Link>..\..\Internal\ProfileBlock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\ReflectionUtil.cs">
+      <Link>..\..\Internal\ReflectionUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Tuple.cs">
+      <Link>..\..\Internal\Tuple.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\TypeExtensions.cs">
+      <Link>..\..\Internal\TypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\..\..\Internal\Func.cs">
+      <Link>..\..\Internal\Func.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\Binder.cs">
+      <Link>Binders\Binder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\BinderGeneric.cs">
+      <Link>Binders\BinderGeneric.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\BinderUntyped.cs">
+      <Link>Binders\BinderUntyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\BindingConditionSetter.cs">
+      <Link>Binders\BindingConditionSetter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\BindScope.cs">
+      <Link>Binders\BindScope.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\IFactoryBinder.cs">
+      <Link>Binders\IFactoryBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\IFactoryUntypedBinder.cs">
+      <Link>Binders\IFactoryUntypedBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\InjectContext.cs">
+      <Link>Binders\InjectContext.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\ReferenceBinder.cs">
+      <Link>Binders\ReferenceBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Binders\ValueBinder.cs">
+      <Link>Binders\ValueBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Exceptions\ZenjectException.cs">
+      <Link>Exceptions\ZenjectException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\Factory.cs">
+      <Link>Factories\Factory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\FactoryCustom.cs">
+      <Link>Factories\FactoryCustom.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\FactoryMethod.cs">
+      <Link>Factories\FactoryMethod.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\FactoryMethodUntyped.cs">
+      <Link>Factories\FactoryMethodUntyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\FactoryNested.cs">
+      <Link>Factories\FactoryNested.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\FactoryUntyped.cs">
+      <Link>Factories\FactoryUntyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\GameObjectFactory.cs">
+      <Link>Factories\GameObjectFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\GameObjectInstantiator.cs">
+      <Link>Factories\GameObjectInstantiator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\IFactory.cs">
+      <Link>Factories\IFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\IFactoryUntyped.cs">
+      <Link>Factories\IFactoryUntyped.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\InstantiateUtil.cs">
+      <Link>Factories\InstantiateUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\IValidatable.cs">
+      <Link>Factories\IValidatable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\IValidatableFactory.cs">
+      <Link>Factories\IValidatableFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\KeyedFactory.cs">
+      <Link>Factories\KeyedFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Factories\ListFactory.cs">
+      <Link>Factories\ListFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Injection\InjectableInfo.cs">
+      <Link>Injection\InjectableInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Injection\TypeAnalyzer.cs">
+      <Link>Injection\TypeAnalyzer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Injection\ZenjectTypeInfo.cs">
+      <Link>Injection\ZenjectTypeInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\BindingId.cs">
+      <Link>Main\BindingId.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\BindingValidator.cs">
+      <Link>Main\BindingValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\CompositionRoot.cs">
+      <Link>Main\CompositionRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\CompositionRootHelper.cs">
+      <Link>Main\CompositionRootHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\DiContainer.cs">
+      <Link>Main\DiContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\DiContainerExtensions.cs">
+      <Link>Main\DiContainerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\GlobalCompositionRoot.cs">
+      <Link>Main\GlobalCompositionRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\GlobalInstallerConfig.cs">
+      <Link>Main\GlobalInstallerConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\IInstaller.cs">
+      <Link>Main\IInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\IInstantiator.cs">
+      <Link>Main\IInstantiator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\Installer.cs">
+      <Link>Main\Installer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Main\MonoInstaller.cs">
+      <Link>Main\MonoInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\DisposableManager.cs">
+      <Link>Misc\DisposableManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\DisposablePrioritiesInstaller.cs">
+      <Link>Misc\DisposablePrioritiesInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\FixedTickablePrioritiesInstaller.cs">
+      <Link>Misc\FixedTickablePrioritiesInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\IDependencyRoot.cs">
+      <Link>Misc\IDependencyRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\IInitializable.cs">
+      <Link>Misc\IInitializable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\InitializableManager.cs">
+      <Link>Misc\InitializableManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\InitializablePrioritiesInstaller.cs">
+      <Link>Misc\InitializablePrioritiesInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\ITickable.cs">
+      <Link>Misc\ITickable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\KernelUtil.cs">
+      <Link>Misc\KernelUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\SingletonInstanceHelper.cs">
+      <Link>Misc\SingletonInstanceHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\StandardUnityInstaller.cs">
+      <Link>Misc\StandardUnityInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\TaskUpdater.cs">
+      <Link>Misc\TaskUpdater.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\TickableManager.cs">
+      <Link>Misc\TickableManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\TickablePrioritiesInstaller.cs">
+      <Link>Misc\TickablePrioritiesInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\UnityDependencyRoot.cs">
+      <Link>Misc\UnityDependencyRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\UnityEventManager.cs">
+      <Link>Misc\UnityEventManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Misc\ZenUtil.cs">
+      <Link>Misc\ZenUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\DiContainerProvider.cs">
+      <Link>Providers\DiContainerProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\GameObjectSingletonProvider.cs">
+      <Link>Providers\GameObjectSingletonProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\GameObjectTransientProviderFromPrefab.cs">
+      <Link>Providers\GameObjectTransientProviderFromPrefab.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\InstanceProvider.cs">
+      <Link>Providers\InstanceProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\MethodProvider.cs">
+      <Link>Providers\MethodProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\MonoBehaviourSingletonProvider.cs">
+      <Link>Providers\MonoBehaviourSingletonProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\PrefabSingletonId.cs">
+      <Link>Providers\PrefabSingletonId.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\PrefabSingletonLazyCreator.cs">
+      <Link>Providers\PrefabSingletonLazyCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\PrefabSingletonProvider.cs">
+      <Link>Providers\PrefabSingletonProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\PrefabSingletonProviderMap.cs">
+      <Link>Providers\PrefabSingletonProviderMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\ProviderBase.cs">
+      <Link>Providers\ProviderBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\SingletonId.cs">
+      <Link>Providers\SingletonId.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\SingletonLazyCreator.cs">
+      <Link>Providers\SingletonLazyCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\SingletonProvider.cs">
+      <Link>Providers\SingletonProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\SingletonProviderMap.cs">
+      <Link>Providers\SingletonProviderMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Providers\TransientProvider.cs">
+      <Link>Providers\TransientProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Usage\Annotations.cs">
+      <Link>Usage\Annotations.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Usage\InjectAttribute.cs">
+      <Link>Usage\InjectAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Usage\InjectOptionalAttribute.cs">
+      <Link>Usage\InjectOptionalAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Usage\PostInjectAttribute.cs">
+      <Link>Usage\PostInjectAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Util\DecoratorInstaller.cs">
+      <Link>Util\DecoratorInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Util\SceneDecoratorCompositionRoot.cs">
+      <Link>Util\SceneDecoratorCompositionRoot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\Util\UnityUtil.cs">
+      <Link>Util\UnityUtil.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>..\Libraries\Unity\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

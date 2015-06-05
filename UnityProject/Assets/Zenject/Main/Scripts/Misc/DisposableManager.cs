@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
-using ModestTree.Util;
 
 namespace Zenject
 {
@@ -16,7 +15,7 @@ namespace Zenject
             [InjectOptional]
             List<IDisposable> disposables,
             [InjectOptional]
-            List<Tuple<Type, int>> priorities,
+            List<ModestTree.Util.Tuple<Type, int>> priorities,
             SingletonInstanceHelper singletonInstanceHelper)
         {
             _singletonInstanceHelper = singletonInstanceHelper;

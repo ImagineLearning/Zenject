@@ -12,7 +12,7 @@ namespace ModestTree.Util
     {
         public static bool IsGenericList(Type type)
         {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>);
+            return type.IsGenericType() && type.GetGenericTypeDefinition() == typeof(List<>);
         }
 
         public static bool IsGenericList(Type type, out Type contentsType)

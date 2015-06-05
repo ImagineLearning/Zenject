@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
-using ModestTree.Util;
 using ModestTree.Util.Debugging;
 
 namespace Zenject
@@ -23,15 +22,15 @@ namespace Zenject
 
         [Inject]
         [InjectOptional]
-        readonly List<Tuple<Type, int>> _priorities = null;
+        readonly List<ModestTree.Util.Tuple<Type, int>> _priorities = null;
 
         [Inject("Fixed")]
         [InjectOptional]
-        readonly List<Tuple<Type, int>> _fixedPriorities = null;
+        readonly List<ModestTree.Util.Tuple<Type, int>> _fixedPriorities = null;
 
         [Inject("Late")]
         [InjectOptional]
-        readonly List<Tuple<Type, int>> _latePriorities = null;
+        readonly List<ModestTree.Util.Tuple<Type, int>> _latePriorities = null;
 
         [Inject]
         readonly SingletonInstanceHelper _singletonInstanceHelper = null;

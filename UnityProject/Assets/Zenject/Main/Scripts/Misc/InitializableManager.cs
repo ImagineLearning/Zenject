@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
-using ModestTree.Util;
 using ModestTree.Util.Debugging;
 
 namespace Zenject
@@ -19,7 +18,7 @@ namespace Zenject
             [InjectOptional]
             List<IInitializable> initializables,
             [InjectOptional]
-            List<Tuple<Type, int>> priorities,
+            List<ModestTree.Util.Tuple<Type, int>> priorities,
             DiContainer container,
             SingletonInstanceHelper singletonInstanceHelper)
         {

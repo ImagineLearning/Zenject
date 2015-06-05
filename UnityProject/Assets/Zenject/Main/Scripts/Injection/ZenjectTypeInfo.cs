@@ -16,8 +16,13 @@ namespace Zenject
             MethodInfo methodInfo, List<InjectableInfo> injectableInfo)
         {
             MethodInfo = methodInfo;
-            InjectableInfo = injectableInfo.AsReadOnly();
-        }
+#if NETFX_CORE
+			InjectableInfo = new ReadOnlyCollection<InjectableInfo>(injectableInfo);
+#else
+			InjectableInfo = injectableInfo.AsReadOnly();
+#endif
+
+		}
     }
 
     internal class ZenjectTypeInfo

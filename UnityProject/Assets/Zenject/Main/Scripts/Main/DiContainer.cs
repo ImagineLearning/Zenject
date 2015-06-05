@@ -100,7 +100,7 @@ namespace Zenject
         {
             get
             {
-                return (from x in _providers from p in x.Value select p.GetInstanceType()).Where(x => x != null && !x.IsInterface && !x.IsAbstract).Distinct();
+                return (from x in _providers from p in x.Value select p.GetInstanceType()).Where(x => x != null && !x.IsInterface() && !x.IsAbstract()).Distinct();
             }
         }
 
@@ -302,7 +302,7 @@ namespace Zenject
         public IEnumerable<ZenjectResolveException> ValidateObjectGraph(
             Type contractType, InjectContext context, params Type[] extras)
         {
-            if (contractType.IsAbstract)
+            if (contractType.IsAbstract())
             {
                 throw new ZenjectResolveException(
                     "Expected contract type '{0}' to be non-abstract".Fmt(contractType.Name()));
@@ -334,7 +334,7 @@ namespace Zenject
 
             // If we are asking for a List<int>, we should also match for any providers that are bound to the open generic type List<>
             // Currently it only matches one and not the other - not totally sure if this is better than returning both
-            if (bindingId.Type.IsGenericType && _providers.TryGetValue(new BindingId(bindingId.Type.GetGenericTypeDefinition(), bindingId.Identifier), out providers))
+            if (bindingId.Type.IsGenericType() && _providers.TryGetValue(new BindingId(bindingId.Type.GetGenericTypeDefinition(), bindingId.Identifier), out providers))
             {
                 return providers;
             }

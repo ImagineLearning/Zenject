@@ -104,7 +104,7 @@ namespace ModestTree.Util
             {
                 return Quaternion.identity;
             }
-            else if (type.IsGenericType)
+            else if (type.IsGenericType())
             {
                 var genericType = type.GetGenericTypeDefinition();
 

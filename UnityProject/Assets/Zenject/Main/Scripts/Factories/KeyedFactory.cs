@@ -4,6 +4,7 @@ using Zenject;
 using ModestTree.Util;
 using ModestTree;
 using System.Linq;
+using Tuple = ModestTree.Util.Tuple;
 
 namespace Zenject
 {
@@ -14,7 +15,7 @@ namespace Zenject
 
         [Inject]
         [InjectOptional]
-        readonly List<Tuple<TKey, Type>> _typePairs = null;
+        readonly List<ModestTree.Util.Tuple<TKey, Type>> _typePairs = null;
 
         Dictionary<TKey, Type> _typeMap;
 
@@ -82,7 +83,7 @@ namespace Zenject
         protected static BindingConditionSetter AddBindingInternal<TDerived>(DiContainer container, TKey key)
             where TDerived : TBase
         {
-            return container.Bind<Tuple<TKey, Type>>().ToInstance(Tuple.New(key, typeof(TDerived)));
+            return container.Bind<ModestTree.Util.Tuple<TKey, Type>>().ToInstance(Tuple.New(key, typeof(TDerived)));
         }
     }
 

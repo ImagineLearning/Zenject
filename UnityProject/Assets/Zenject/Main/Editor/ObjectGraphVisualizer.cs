@@ -9,120 +9,123 @@ using ModestTree;
 
 namespace Zenject
 {
-    // Responsibilities:
-    // - Output a file specifying the full object graph for a given root dependency
-    // - This file uses the DOT language with can be fed into GraphViz to generate an image
-    // - http://www.graphviz.org/
-    public static class ObjectGraphVisualizer
-    {
-        public static void OutputObjectGraphToFile(
-            DiContainer container, string outputPath,
-            IEnumerable<Type> externalIgnoreTypes, IEnumerable<Type> contractTypes)
-        {
-            // Output the entire object graph to file
-            var graph = CalculateObjectGraph(container, contractTypes);
+	// Responsibilities:
+	// - Output a file specifying the full object graph for a given root dependency
+	// - This file uses the DOT language with can be fed into GraphViz to generate an image
+	// - http://www.graphviz.org/
+	public static class ObjectGraphVisualizer
+	{
+		public static void OutputObjectGraphToFile(
+			DiContainer container, string outputPath,
+			IEnumerable<Type> externalIgnoreTypes, IEnumerable<Type> contractTypes)
+		{
+			// Output the entire object graph to file
+			var graph = CalculateObjectGraph(container, contractTypes);
 
-            var ignoreTypes = new List<Type>()
-            {
-                typeof(DiContainer),
-                typeof(InitializableManager),
-            };
+			var ignoreTypes = new List<Type>()
+			{
+				typeof(DiContainer),
+				typeof(InitializableManager),
+			};
 
-            ignoreTypes.AddRange(externalIgnoreTypes);
+			ignoreTypes.AddRange(externalIgnoreTypes);
 
-            var resultStr = "digraph { \n";
+			var resultStr = "digraph { \n";
 
-            resultStr += "rankdir=LR;\n";
+			resultStr += "rankdir=LR;\n";
 
-            foreach (var entry in graph)
-            {
-                if (ShouldIgnoreType(entry.Key, ignoreTypes))
-                {
-                    continue;
-                }
+			foreach (var entry in graph)
+			{
+				if (ShouldIgnoreType(entry.Key, ignoreTypes))
+				{
+					continue;
+				}
 
-                foreach (var dependencyType in entry.Value)
-                {
-                    if (ShouldIgnoreType(dependencyType, ignoreTypes))
-                    {
-                        continue;
-                    }
+				foreach (var dependencyType in entry.Value)
+				{
+					if (ShouldIgnoreType(dependencyType, ignoreTypes))
+					{
+						continue;
+					}
 
-                    resultStr += GetFormattedTypeName(entry.Key) + " -> " + GetFormattedTypeName(dependencyType) + "; \n";
-                }
-            }
+					resultStr += GetFormattedTypeName(entry.Key) + " -> " + GetFormattedTypeName(dependencyType) + "; \n";
+				}
+			}
 
-            resultStr += " }";
+			resultStr += " }";
 
-            System.IO.File.WriteAllText(outputPath, resultStr);
-        }
+#if !NETFX_CORE
+			//File static class doesn't exist, could use the async file call
+			System.IO.File.WriteAllText(outputPath, resultStr);
+#endif
+		}
 
-        static bool ShouldIgnoreType(Type type, List<Type> ignoreTypes)
-        {
-            return ignoreTypes.Contains(type);
-        }
+		static bool ShouldIgnoreType(Type type, List<Type> ignoreTypes)
+		{
+			return ignoreTypes.Contains(type);
+		}
 
-        static Dictionary<Type, List<Type>> CalculateObjectGraph(
-            DiContainer container, IEnumerable<Type> contracts)
-        {
-            var map = new Dictionary<Type, List<Type>>();
+		static Dictionary<Type, List<Type>> CalculateObjectGraph(
+			DiContainer container, IEnumerable<Type> contracts)
+		{
+			var map = new Dictionary<Type, List<Type>>();
 
-            foreach (var contractType in contracts)
-            {
-                var depends = GetDependencies(container, contractType);
+			foreach (var contractType in contracts)
+			{
+				var depends = GetDependencies(container, contractType);
 
-                if (depends.Any())
-                {
-                    map.Add(contractType, depends);
-                }
-            }
+				if (depends.Any())
+				{
+					map.Add(contractType, depends);
+				}
+			}
 
-            return map;
-        }
+			return map;
+		}
 
-        static List<Type> GetDependencies(
-            DiContainer container, Type type)
-        {
-            var dependencies = new List<Type>();
+		static List<Type> GetDependencies(
+			DiContainer container, Type type)
+		{
+			var dependencies = new List<Type>();
 
-            foreach (var contractType in container.GetDependencyContracts(type))
-            {
-                List<Type> dependTypes;
+			foreach (var contractType in container.GetDependencyContracts(type))
+			{
+				List<Type> dependTypes;
 
-                if (contractType.FullName.StartsWith("System.Collections.Generic.List"))
-                {
-                    var subTypes = contractType.GetGenericArguments();
-                    Assert.IsEqual(subTypes.Length, 1);
+				if (contractType.FullName.StartsWith("System.Collections.Generic.List"))
+				{
+					var subTypes = contractType.GetGenericArguments();
+					Assert.IsEqual(subTypes.Length, 1);
 
-                    var subType = subTypes[0];
-                    dependTypes = container.ResolveTypeAll(subType);
-                }
-                else
-                {
-                    dependTypes = container.ResolveTypeAll(contractType);
-                    Assert.That(dependTypes.Count <= 1);
-                }
+					var subType = subTypes[0];
+					dependTypes = container.ResolveTypeAll(subType);
+				}
+				else
+				{
+					dependTypes = container.ResolveTypeAll(contractType);
+					Assert.That(dependTypes.Count <= 1);
+				}
 
-                foreach (var dependType in dependTypes)
-                {
-                    dependencies.Add(dependType);
-                }
-            }
+				foreach (var dependType in dependTypes)
+				{
+					dependencies.Add(dependType);
+				}
+			}
 
-            return dependencies;
-        }
+			return dependencies;
+		}
 
-        static string GetFormattedTypeName(Type type)
-        {
-            var str = type.Name();
+		static string GetFormattedTypeName(Type type)
+		{
+			var str = type.Name();
 
-            // GraphViz does not read names with <, >, or . characters so replace them
-            str = str.Replace(">", "_");
-            str = str.Replace("<", "_");
-            str = str.Replace(".", "_");
+			// GraphViz does not read names with <, >, or . characters so replace them
+			str = str.Replace(">", "_");
+			str = str.Replace("<", "_");
+			str = str.Replace(".", "_");
 
-            return str;
-        }
-    }
+			return str;
+		}
+	}
 }
 

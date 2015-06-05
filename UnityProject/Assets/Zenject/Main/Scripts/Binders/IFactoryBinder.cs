@@ -34,7 +34,7 @@ namespace Zenject
 
         public BindingConditionSetter ToFactory()
         {
-            Assert.That(!typeof(TContract).IsAbstract);
+            Assert.That(!typeof(TContract).IsAbstract());
             return _container.Bind<IFactory<TContract>>(_identifier)
                 .ToTransient<Factory<TContract>>();
         }
@@ -106,7 +106,7 @@ namespace Zenject
 
         public BindingConditionSetter ToFactory()
         {
-            Assert.That(!typeof(TContract).IsAbstract);
+            Assert.That(!typeof(TContract).IsAbstract());
             return _container.Bind<IFactory<TParam1, TContract>>(_identifier)
                 .ToTransient<Factory<TParam1, TContract>>();
         }
@@ -182,7 +182,7 @@ namespace Zenject
 
         public BindingConditionSetter ToFactory()
         {
-            Assert.That(!typeof(TContract).IsAbstract);
+            Assert.That(!typeof(TContract).IsAbstract());
             return _container.Bind<IFactory<TParam1, TParam2, TContract>>(_identifier)
                 .ToTransient<Factory<TParam1, TParam2, TContract>>();
         }
@@ -258,7 +258,7 @@ namespace Zenject
 
         public BindingConditionSetter ToFactory()
         {
-            Assert.That(!typeof(TContract).IsAbstract);
+            Assert.That(!typeof(TContract).IsAbstract());
             return _container.Bind<IFactory<TParam1, TParam2, TParam3, TContract>>(_identifier)
                 .ToTransient<Factory<TParam1, TParam2, TParam3, TContract>>();
         }
@@ -335,7 +335,7 @@ namespace Zenject
 
         public BindingConditionSetter ToFactory()
         {
-            Assert.That(!typeof(TContract).IsAbstract);
+            Assert.That(!typeof(TContract).IsAbstract());
             return _container.Bind<IFactory<TParam1, TParam2, TParam3, TParam4, TContract>>(_identifier)
                 .ToTransient<Factory<TParam1, TParam2, TParam3, TParam4, TContract>>();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Zenject;
 using ModestTree;
 using ModestTree.Util;
+using Tuple = ModestTree.Util.Tuple;
 
 namespace Zenject
 {
@@ -41,7 +42,7 @@ namespace Zenject
             Assert.That(disposableType.DerivesFrom<IDisposable>(),
                 "Expected type '{0}' to derive from IDisposable", disposableType.Name());
 
-            container.Bind<Tuple<Type, int>>().ToInstance(
+            container.Bind<ModestTree.Util.Tuple<Type, int>>().ToInstance(
                 Tuple.New(disposableType, priorityCount)).WhenInjectedInto<DisposableManager>();
         }
     }

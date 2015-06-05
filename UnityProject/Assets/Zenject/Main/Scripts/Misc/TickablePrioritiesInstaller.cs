@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Zenject;
 using ModestTree;
 using ModestTree.Util;
+using Tuple = ModestTree.Util.Tuple;
 
 namespace Zenject
 {
@@ -35,7 +36,7 @@ namespace Zenject
             Assert.That(tickableType.DerivesFrom<ITickable>(),
                 "Expected type '{0}' to derive from ITickable", tickableType.Name());
 
-            container.Bind<Tuple<Type, int>>().ToInstance(
+            container.Bind<ModestTree.Util.Tuple<Type, int>>().ToInstance(
                 Tuple.New(tickableType, priorityCount)).WhenInjectedInto<TickableManager>();
         }
     }

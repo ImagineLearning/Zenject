@@ -8,3 +8,6 @@
 .ackrc
 .vimrc_l
 project_root_marker
+AssemblyBuild/Zenject-editor_WSA/obj/
+AssemblyBuild/Zenject_WSA/bin/
+AssemblyBuild/Zenject_WSA/obj/

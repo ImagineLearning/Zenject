@@ -154,6 +154,7 @@
     <Compile Include="Providers\SingletonProvider.cs" />
     <Compile Include="Providers\SingletonProviderMap.cs" />
     <Compile Include="Providers\TransientProvider.cs" />
+    <Compile Include="Usage\Annotations.cs" />
     <Compile Include="Usage\InjectAttribute.cs" />
     <Compile Include="Usage\InjectOptionalAttribute.cs" />
     <Compile Include="Usage\PostInjectAttribute.cs" />
@@ -162,6 +163,9 @@
     <Compile Include="Util\UnityUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>powershell -f "$(SolutionDir)\syncproject.ps1" "$(ProjectDir)Zenject.csproj" "$(SolutionDir)\Zenject_WSA\Zenject_WSA.csproj" "..\..\UnityProject\\Assets\\Zenject\\Main\\Scripts\\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

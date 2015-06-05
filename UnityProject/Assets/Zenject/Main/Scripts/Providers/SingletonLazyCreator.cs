@@ -106,7 +106,7 @@ namespace Zenject
         {
             if (_id.Type.IsOpenGenericType())
             {
-                Assert.That(!contractType.IsAbstract);
+                Assert.That(!contractType.IsAbstract());
                 Assert.That(contractType.GetGenericTypeDefinition() == _id.Type);
                 return contractType;
             }
